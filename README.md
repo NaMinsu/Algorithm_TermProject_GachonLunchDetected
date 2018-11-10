@@ -1,0 +1,2 @@
+# Algorithm_TermProject_GachonLunchDetected
+2018 Algorithms Team Project
