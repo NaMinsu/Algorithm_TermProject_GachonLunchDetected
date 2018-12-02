@@ -13,6 +13,7 @@ public class RoadMap {
 	private boolean[] checks; // 방문 여부 체크 변수
 	private int startingPoint; // 시작점
 	private int destination; // 도착점
+	private int shortestTime; // 최단시간 변수
 	// 경로 데이터 저장 변수
 	static Vector<Integer> steps = new Vector<Integer>();
 	enum Nodes { // 지도 정보를 위한 enumeration
@@ -80,6 +81,10 @@ public class RoadMap {
 			links[startI][endI] = value;
 			links[endI][startI] = value;
 		}
+	}
+	
+	public int getShortestTime() {
+		return shortestTime;
 	}
 	
 	public void setStartAndEnd(String start, String end) {
