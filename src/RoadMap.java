@@ -5,6 +5,7 @@ import java.util.Vector;
 
 public class RoadMap {
 	public static final int nodeNum = 19;
+	private static final int maxValue = 3600;
 	private String[] nodes; // 각 노드의 이름
 	private int[][] links; // 연결된 path
 	private int[] distances; // 각 번호 노드의 최단거리
@@ -38,9 +39,9 @@ public class RoadMap {
 			nodes[i] = Nodes.values()[i].getPlace();
 		links = new int[nodeNum][nodeNum];
 		for (int i = 0; i < nodeNum; i++)
-			Arrays.fill(links[i], Integer.MAX_VALUE);
+			Arrays.fill(links[i], maxValue);
 		distances = new int[nodeNum];
-		Arrays.fill(distances, Integer.MAX_VALUE);
+		Arrays.fill(distances, maxValue);
 		checks = new boolean[nodeNum];
 		Arrays.fill(checks, false);
 		prevNode = new int[nodeNum];
@@ -90,6 +91,8 @@ public class RoadMap {
 				destination = i;
 			}
 		}
+		
+		distances[startingPoint] = 0;
 	}
 	
 	private int shortestPath(int start, int end) {
@@ -98,20 +101,20 @@ public class RoadMap {
 		
 		checks[start] = true;
 		
-		int min = Integer.MAX_VALUE;
+		int min = maxValue;
 		for (int i = 0; i < nodeNum; i++) {
 			if (distances[i] > distances[start] + links[start][i]) {
 				distances[i] = distances[start] + links[start][i];
 				prevNode[i] = start;
 			}
 			
-			if (min == Integer.MAX_VALUE || distances[min] > distances[i])
-				min = i;
+			if (checks[i] == false) {
+				if (min == maxValue || distances[min] > distances[i])
+					min = i;
+			}
 		}
 		
-		shortestPath(min, end);
-		
-		return 0;
+		return shortestPath(min, end);
 	}
 	
 	private void makingPath(int start, int end, int node) {
