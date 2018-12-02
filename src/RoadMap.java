@@ -1,5 +1,3 @@
-package main;
-
 import java.io.*;
 import java.util.Scanner;
 import java.util.Arrays;
@@ -7,20 +5,20 @@ import java.util.Vector;
 
 public class RoadMap {
 	public static final int nodeNum = 19;
-	private String[] nodes; // °¢ ³ëµåÀÇ ÀÌ¸§
-	private int[][] links; // ¿¬°áµÈ path
-	private int[] distances; // °¢ ¹øÈ£ ³ëµåÀÇ ÃÖ´Ü°Å¸®
-	private int[] prevNode; // ÀüÀÓÀÚ ³ëµå
-	private boolean[] checks; // ¹æ¹® ¿©ºÎ Ã¼Å© º¯¼ö
-	private int startingPoint; // ½ÃÀÛÁ¡
-	private int destination; // µµÂøÁ¡
-	// °æ·Î µ¥ÀÌÅÍ ÀúÀå º¯¼ö
+	private String[] nodes; // ê° ë…¸ë“œì˜ ì´ë¦„
+	private int[][] links; // ì—°ê²°ëœ path
+	private int[] distances; // ê° ë²ˆí˜¸ ë…¸ë“œì˜ ìµœë‹¨ê±°ë¦¬
+	private int[] prevNode; // ì „ì„ì ë…¸ë“œ
+	private boolean[] checks; // ë°©ë¬¸ ì—¬ë¶€ ì²´í¬ ë³€ìˆ˜
+	private int startingPoint; // ì‹œì‘ì 
+	private int destination; // ë„ì°©ì 
+	// ê²½ë¡œ ë°ì´í„° ì €ì¥ ë³€ìˆ˜
 	static Vector<Integer> steps = new Vector<Integer>();
-	enum Nodes { // Áöµµ Á¤º¸¸¦ À§ÇÑ enumeration
-		A("±â¼÷»ç"), B("ÇĞ»ıÈ¸°ü"), C("Áßµµ"), D("±³´ë"), E("¹Ù³ª´ë"),
-		F("´ëÇĞ¿ø"), G("¿¹´ë1"), H("°ø´ë1"), I("±Û¼¾"), J("IT´ë"),
-		K("°¡Ãµ°ü"), L("»êÇĞ"), M("°ø´ë2"), N("¹Ù³ª¿¬"), O("¹ı´ë"),
-		P("ºñÅ¸"), Q("½ºÅ¸´ı"), R("½Ä´ç°¡"), S("ÇĞ±º´Ü");
+	enum Nodes { // ì§€ë„ ì •ë³´ë¥¼ ìœ„í•œ enumeration
+		A("ê¸°ìˆ™ì‚¬"), B("í•™ìƒíšŒê´€"), C("ì¤‘ë„"), D("êµëŒ€"), E("ë°”ë‚˜ëŒ€"),
+		F("ëŒ€í•™ì›"), G("ì˜ˆëŒ€1"), H("ê³µëŒ€1"), I("ê¸€ì„¼"), J("ITëŒ€"),
+		K("ê°€ì²œê´€"), L("ì‚°í•™"), M("ê³µëŒ€2"), N("ë°”ë‚˜ì—°"), O("ë²•ëŒ€"),
+		P("ë¹„íƒ€"), Q("ìŠ¤íƒ€ë¤"), R("ì‹ë‹¹ê°€"), S("í•™êµ°ë‹¨");
 		
 		private final String place;
 		
