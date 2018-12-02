@@ -81,6 +81,8 @@ public class RoadMap {
 			links[startI][endI] = value;
 			links[endI][startI] = value;
 		}
+		
+		fis.close();
 	}
 	
 	public int getShortestTime() {
