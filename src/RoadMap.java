@@ -135,7 +135,7 @@ public class RoadMap {
 	public String[] dijkstra() {
 		String[] pathNodes;
 		
-		shortestPath(startingPoint, destination);
+		shortestTime = shortestPath(startingPoint, destination);
 		makingPath(startingPoint, destination, destination);
 		
 		pathNodes = new String[steps.size()];
