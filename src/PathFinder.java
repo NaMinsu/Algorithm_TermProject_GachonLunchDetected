@@ -69,4 +69,8 @@ public class PathFinder {
 		
 		return result;
 	}
+	
+	public int findShortestTime() {
+		return map.getShortestTime();
+	}
 }
