@@ -6,6 +6,13 @@ public class PathFinder {
 	private Food recommanded;
 	private RoadMap map;
 	
+	// this is the constructor for debugging
+	/*public PathFinder(String start, String end) {
+		startPoint = start;
+		destination = end;
+		map = new RoadMap();
+	}*/
+	
 	public PathFinder(String start, Food f) {
 		startPoint = start;
 		recommanded = f;
