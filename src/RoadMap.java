@@ -46,7 +46,7 @@ public class RoadMap {
 		checks = new boolean[nodeNum];
 		Arrays.fill(checks, false);
 		prevNode = new int[nodeNum];
-		Arrays.fill(prevNode, 0);
+		Arrays.fill(prevNode, nodeNum);
 		
 		String fileName = "datalist.txt";
 		Scanner fis = null;
