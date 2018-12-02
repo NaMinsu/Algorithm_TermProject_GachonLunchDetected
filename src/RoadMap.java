@@ -66,11 +66,11 @@ public class RoadMap {
 			for (int i = 0; i < nodeNum; i++) {
 				if (sflag && eflag)
 					break;
-				if (nodes[i].equalsIgnoreCase(start)) {
+				if (nodes[i].equals(start)) {
 					startI = i;
 					sflag = true;
 				}
-				if (nodes[i].equalsIgnoreCase(end)) {
+				if (nodes[i].equals(end)) {
 					endI = i;
 					eflag = true;
 				}
@@ -83,10 +83,10 @@ public class RoadMap {
 	
 	public void setStartAndEnd(String start, String end) {
 		for (int i = 0; i < nodeNum; i++) {
-			if (start.equalsIgnoreCase(nodes[i])) {
+			if (start.equals(nodes[i])) {
 				startingPoint = i;
 			}
-			if (end.equalsIgnoreCase(nodes[i])) {
+			if (end.equals(nodes[i])) {
 				destination = i;
 			}
 		}
